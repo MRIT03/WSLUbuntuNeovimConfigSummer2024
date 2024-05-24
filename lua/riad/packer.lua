@@ -18,6 +18,25 @@ return require('packer').startup(function(use)
   use( 'nvim-treesitter/playground')
   use('nvim-lua/plenary.nvim')
   use( 'ThePrimeagen/harpoon')
+  use( 'mbbill/undotree')
+  use( 'tpope/vim-fugitive')
+  use {
+	  'VonHeikemen/lsp-zero.nvim',
+	  branch = 'v3.x',
+	  requires = {
+		  -- Uncomment the two plugins below if you want to manage the language servers from neovim
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
+		   {'williamboman/mason.nvim'},
+		   {'williamboman/mason-lspconfig.nvim'},
+
+		  {'neovim/nvim-lspconfig'},
+		  {'hrsh7th/nvim-cmp'},
+		  {'hrsh7th/cmp-nvim-lsp'},
+		  {'L3MON4D3/LuaSnip'},
+	  }
+  }
+  use { "windwp/nvim-ts-autotag" }
+  use { "rafamadriz/friendly-snippets" }
 end)
 
 
