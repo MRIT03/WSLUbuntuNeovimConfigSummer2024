@@ -70,6 +70,17 @@ cmp.setup({
   },
 })
 
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require('lspconfig').html.setup {
+  capabilities = capabilities,
+}
 
 
+local util = require('lspconfig.util')
 
+lsp_zero.configure('angularls', {
+    root_dir = util.root_pattern('angular.json', 'project.json')
+})
